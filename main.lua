@@ -1,4 +1,5 @@
-local anticheat = nil
+local fiveguard = nil
+local anticheat = exports[fiveguard]
 
 RegisterCommand(Config.RecordCommand, function(source, args)
     local playerSource, recordTime
@@ -17,9 +18,11 @@ RegisterCommand(Config.RecordCommand, function(source, args)
             console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
         elseif args[1] and args[2] == nil then
             console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
-        else
+        elseif args[1] and args[2] ~= nil then
             playerSource = tonumber(args[1])
             recordTime = tonumber(args[2]) * 1000
+        else
+            console()
         end
     end
 
@@ -32,7 +35,7 @@ RegisterCommand(Config.RecordCommand, function(source, args)
     end
 
     if playerSource and recordTime then
-        exports[fiveguard]:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
+        anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
     end
 end)
 
@@ -50,8 +53,10 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     elseif source == 0 then
         if args[1] == nil then
             console("No player or wrong command:^3 " .. Config.ScreenCommand .. " ^0[ID]")
-        else
+        elseif args[1] ~= nil then
             playerSource = tonumber(args[1])
+        else
+            console()
         end
     end
 
@@ -64,14 +69,14 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     end
 
     if playerSource then
-        exports[fiveguard]:screenshotPlayer(playerSource, screenshotHandler)
+        anticheat:screenshotPlayer(playerSource, screenshotHandler)
     end
 end)
 
 function console(msg, url)
     if url == nil then
         print("^5[FG_ADDON]^1 " .. msg .. "^0")
-    elseif msg == nil then
+    elseif msg == nil and url == nil then
         print("^5[FG_ADDON]^1 ERROR^0")
     else
         print("^5[FG_ADDON]^0 " .. msg .. "^3[" .. url .. "]^0")
@@ -80,6 +85,6 @@ end
 
 AddEventHandler("fg:ExportsLoaded", function(fiveguard_res, res)
     if res == "*" or res == GetCurrentResourceName() then
-        anticheat = fiveguard_res
+        fiveguard = fiveguard_res
     end
 end)
