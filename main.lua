@@ -36,8 +36,6 @@ RegisterCommand(Config.RecordCommand, function(source, args)
 
     if playerSource and recordTime then
         anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
-    else
-        console("Script Error!")
     end
 end)
 
@@ -72,8 +70,6 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
 
     if playerSource then
         anticheat:screenshotPlayer(playerSource, screenshotHandler)
-    else
-        console("Script Error!")
     end
 end)
 
