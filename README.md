@@ -51,3 +51,4 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 -- Example usage of the screenshot command
 /screenshot 1
 ```
+![grafik](https://github.com/UnrealMexd0x/fg_screen_record/assets/118627448/df99818b-626e-4216-85e5-211789738813)
