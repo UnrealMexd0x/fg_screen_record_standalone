@@ -31,7 +31,6 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 ### Configuration (Config.lua)
 
-- `Config.FiveguardName`: The name of the Fiveguard resource.
 - `Config.RecordCommand`: The command for initiating screen recording.
 - `Config.RecordCommandAce`: The ACE permission required to use the record command.
 - `Config.ScreenCommand`: The command for capturing a screenshot.
