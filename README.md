@@ -40,7 +40,7 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 - Ensure that the `Fiveguard` resource is properly configured and functional for the anticheat features to work.
 
-- ![grafik](https://github.com/UnrealMexd0x/fg_screen_record/assets/118627448/07d4c095-79a9-4e3f-b755-69d19f045c0f)
+  ![grafik](https://github.com/UnrealMexd0x/fg_screen_record/assets/118627448/07d4c095-79a9-4e3f-b755-69d19f045c0f)
 
 
 - Monitor the console for feedback messages on the success or failure of screen recording and screenshot actions.
