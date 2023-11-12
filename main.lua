@@ -1,4 +1,4 @@
-local anticheat = exports[Config.FiveguardName]
+local anticheat = nil
 
 RegisterCommand(Config.RecordCommand, function(source, args)
     local playerSource, recordTime
@@ -77,3 +77,9 @@ function console(msg, url)
         print("^5[FG_ADDON]^0 " .. msg .. "^3[" .. url .. "]^0")
     end
 end
+
+AddEventHandler("fg:ExportsLoaded", function(fiveguard_res, res)
+    if res == "*" or res == GetCurrentResourceName() then
+        anticheat = fiveguard_res
+    end
+end)
