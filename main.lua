@@ -33,12 +33,6 @@ RegisterCommand(Config.RecordCommand, function(source, args)
 
     if playerSource and recordTime then
         anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
-    elseif playerSource == nil then
-        console("User not found!")
-    elseif recordTime == nil then
-        console("Time not found!")
-    else
-        console()
     end
 end)
 
@@ -71,8 +65,6 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
 
     if playerSource then
         anticheat:screenshotPlayer(playerSource, screenshotHandler)
-    else
-        console("User not found!")
     end
 end)
 
