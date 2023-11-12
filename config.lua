@@ -5,5 +5,5 @@ Config.FiveguardName = "YOURFIVEGUARDNAME"
 Config.RecordCommand = "record"
 Config.RecordCommandAce = "test"
 
-Config.ScreenCommand = "screen"
+Config.ScreenCommand = "screenshot"
 Config.ScreenCommandAce = "test"
