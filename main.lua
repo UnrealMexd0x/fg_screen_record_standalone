@@ -1,5 +1,5 @@
 local fiveguard = nil
-local anticheat = exports[fiveguard]
+local anticheat = nil
 
 RegisterCommand(Config.RecordCommand, function(source, args)
     local playerSource, recordTime
@@ -86,5 +86,6 @@ end
 AddEventHandler("fg:ExportsLoaded", function(fiveguard_res, res)
     if res == "*" or res == GetCurrentResourceName() then
         fiveguard = fiveguard_res
+        anticheat = exports[fiveguard]
     end
 end)
