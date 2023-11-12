@@ -32,7 +32,7 @@ RegisterCommand(Config.RecordCommand, function(source, args)
     end
 
     if playerSource and recordTime then
-        anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
+        exports[fiveguard]:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
     end
 end)
 
@@ -64,7 +64,7 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     end
 
     if playerSource then
-        anticheat:screenshotPlayer(playerSource, screenshotHandler)
+        exports[fiveguard]:screenshotPlayer(playerSource, screenshotHandler)
     end
 end)
 
