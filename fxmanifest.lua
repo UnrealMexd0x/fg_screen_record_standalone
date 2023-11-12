@@ -4,7 +4,7 @@ game 'gta5'
 name "fg_screen_record"
 description "Screen and Record Command for FiveGuard with ACE Permissions"
 author "UnrealMexd0x"
-version "0.0.4"
+version "0.0.5"
 
 server_scripts {
 	'main.lua',
