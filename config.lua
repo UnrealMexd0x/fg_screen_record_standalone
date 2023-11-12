@@ -1,7 +1,5 @@
 Config = {}
 
-Config.FiveguardName = "YOURFIVEGUARDNAME"
-
 Config.RecordCommand = "record"
 Config.RecordCommandAce = "test"
 
