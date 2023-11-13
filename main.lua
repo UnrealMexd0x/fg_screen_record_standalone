@@ -14,15 +14,12 @@ RegisterCommand(Config.RecordCommand, function(source, args)
             return
         end
     elseif source == 0 then
-        if args[2] == nil then
+        if args[2] == nil or args[1] and args[2] == nil then
             console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
-        elseif args[1] and args[2] == nil then
-            console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
-        elseif args[1] and args[2] ~= nil then
+            return
+        else
             playerSource = tonumber(args[1])
             recordTime = tonumber(args[2]) * 1000
-        else
-            console("Script Error!")
         end
     end
 
@@ -53,10 +50,9 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     elseif source == 0 then
         if args[1] == nil then
             console("No player or wrong command:^3 " .. Config.ScreenCommand .. " ^0[ID]")
-        elseif args[1] ~= nil then
-            playerSource = tonumber(args[1])
+            return
         else
-            console("Script Error!")
+            playerSource = tonumber(args[1])
         end
     end
 
