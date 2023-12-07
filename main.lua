@@ -15,6 +15,9 @@ RegisterCommand(RecordC, function(source, args)
     _source = source
 
     if args <= 10 then
+    elseif args == nil then
+        Console("The value must be less than or equal to 10.")
+        return
     else
         Console("The value must be less than or equal to 10.")
         return
