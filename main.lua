@@ -1,7 +1,7 @@
 local FiveGuard = nil
 local AntiCheat = nil
 
--- Your Command
+-- Your Commands
 RecordC = "record"
 ScreenC = "screenshot"
 
