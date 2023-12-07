@@ -7,6 +7,5 @@ author "UnrealMexd0x"
 version "1.0.5"
 
 server_scripts {
-	'main.lua',
-	'config.lua'
+	'main.lua'
 }

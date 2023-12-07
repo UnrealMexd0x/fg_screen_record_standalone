@@ -1,21 +1,29 @@
-local fiveguard = nil
-local anticheat = nil
+local FiveGuard = nil
+local AntiCheat = nil
 
-RegisterCommand(Config.RecordCommand, function(source, args)
-    local playerSource, recordTime
+-- Your Command
+RecordC = "record"
+ScreenC = "screenshot"
 
-    source = source
+-- Your ACE 'add_ace group.admin test allow'
+RecordACE = "test"
+ScreenACE = "test"
 
-    if source ~= 0 then
-        if IsPlayerAceAllowed(source, Config.RecordCommandAce) then
+RegisterCommand(RecordC, function(source, args)
+    local playerSource, recordTime = nil
+
+    _source = source
+
+    if _source ~= 0 then
+        if IsPlayerAceAllowed(_source, RecordACE) then
             playerSource = tonumber(args[1])
             recordTime = tonumber(args[2]) * 1000
         else
             return
         end
-    elseif source == 0 then
+    elseif _source == 0 then
         if args[2] == nil or args[1] and args[2] == nil then
-            Console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
+            Console("No player or wrong command:^3 " .. RecordC .. " ^0[ID] [Time in Sec]")
             return
         else
             playerSource = tonumber(args[1])
@@ -32,24 +40,24 @@ RegisterCommand(Config.RecordCommand, function(source, args)
     end
 
     if playerSource and recordTime then
-        anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
+        AntiCheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
     end
 end, false)
 
-RegisterCommand(Config.ScreenCommand, function(source, args)
-    local playerSource
+RegisterCommand(ScreenC, function(source, args)
+    local playerSource = nil
 
-    source = source
+    _source = source
 
-    if source ~= 0 then
-        if IsPlayerAceAllowed(source, Config.ScreenCommandAce) then
+    if _source ~= 0 then
+        if IsPlayerAceAllowed(_source, ScreenACE) then
             playerSource = tonumber(args[1])
         else
             return
         end
-    elseif source == 0 then
+    elseif _source == 0 then
         if args[1] == nil then
-            Console("No player or wrong command:^3 " .. Config.ScreenCommand .. " ^0[ID]")
+            Console("No player or wrong command:^3 " .. ScreenC .. " ^0[ID]")
             return
         else
             playerSource = tonumber(args[1])
@@ -65,7 +73,7 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     end
 
     if playerSource then
-        anticheat:screenshotPlayer(playerSource, screenshotHandler)
+        AntiCheat:screenshotPlayer(playerSource, screenshotHandler)
     end
 end, false)
 
@@ -79,9 +87,9 @@ function Console(msg, url)
     end
 end
 
-AddEventHandler("fg:ExportsLoaded", function(fiveguard_res, res)
+AddEventHandler("fg:ExportsLoaded", function(FiveGuard_res, res)
     if res == "*" or res == GetCurrentResourceName() then
-        fiveguard = fiveguard_res
-        anticheat = exports[fiveguard]
+        FiveGuard = FiveGuard_res
+        AntiCheat = exports[FiveGuard]
     end
 end)
