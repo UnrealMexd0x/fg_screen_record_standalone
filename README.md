@@ -49,7 +49,7 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 ```lua
 -- Example usage of the record command
-/record 1 60
+/record 1 10
 
 -- Example usage of the screenshot command
 /screenshot 1
