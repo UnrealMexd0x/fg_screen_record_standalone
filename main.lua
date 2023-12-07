@@ -15,7 +15,7 @@ RegisterCommand(Config.RecordCommand, function(source, args)
         end
     elseif source == 0 then
         if args[2] == nil or args[1] and args[2] == nil then
-            console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
+            Console("No player or wrong command:^3 " .. Config.RecordCommand .. " ^0[ID] [Time in Sec]")
             return
         else
             playerSource = tonumber(args[1])
@@ -25,16 +25,16 @@ RegisterCommand(Config.RecordCommand, function(source, args)
 
     local function screenRecordHandler(url)
         if url then
-            console("Screen recording successful!", url)
+            Console("Screen recording successful!", url)
         else
-            console("Script Error!")
+            Console("Script Error!")
         end
     end
 
     if playerSource and recordTime then
         anticheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
     end
-end)
+end, false)
 
 RegisterCommand(Config.ScreenCommand, function(source, args)
     local playerSource
@@ -49,7 +49,7 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
         end
     elseif source == 0 then
         if args[1] == nil then
-            console("No player or wrong command:^3 " .. Config.ScreenCommand .. " ^0[ID]")
+            Console("No player or wrong command:^3 " .. Config.ScreenCommand .. " ^0[ID]")
             return
         else
             playerSource = tonumber(args[1])
@@ -67,9 +67,9 @@ RegisterCommand(Config.ScreenCommand, function(source, args)
     if playerSource then
         anticheat:screenshotPlayer(playerSource, screenshotHandler)
     end
-end)
+end, false)
 
-function console(msg, url)
+function Console(msg, url)
     if url == nil then
         print("^5[FG_ADDON]^1 " .. msg .. "^0")
     elseif msg == nil and url == nil then

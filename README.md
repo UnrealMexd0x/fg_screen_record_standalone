@@ -1,4 +1,4 @@
-# fg_screen_record
+# fg_screen_record_standalone
 Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 ### Commands
