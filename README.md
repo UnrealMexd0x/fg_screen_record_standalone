@@ -31,10 +31,10 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 ### Configuration (Config.lua)
 
-- `Config.RecordCommand`: The command for initiating screen recording.
-- `Config.RecordCommandAce`: The ACE permission required to use the record command.
-- `Config.ScreenCommand`: The command for capturing a screenshot.
-- `Config.ScreenCommandAce`: The ACE permission required to use the screenshot command.
+- `RecordCommand`: The command for initiating screen recording.
+- `RecordCommandAce`: The ACE permission required to use the record command.
+- `ScreenCommand`: The command for capturing a screenshot.
+- `ScreenCommandAce`: The ACE permission required to use the screenshot command.
 
 ### Notes
 
