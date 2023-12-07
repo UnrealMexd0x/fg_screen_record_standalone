@@ -45,6 +45,8 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 
 - Monitor the console for feedback messages on the success or failure of screen recording and screenshot actions.
 
+- The reason the seconds in the command only go up to 10 is due to Discord's rate limiting.
+
 ### Example
 
 ```lua
