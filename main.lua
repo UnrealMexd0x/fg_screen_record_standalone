@@ -2,8 +2,8 @@ local FiveGuard = nil
 local AntiCheat = nil
 
 -- Your Commands
-RecordC = "record"
-ScreenC = "screenshot"
+RecordC = "record1"
+ScreenC = "screenshot1"
 
 -- Your ACE 'add_ace group.admin test allow'
 RecordACE = "test"
@@ -13,30 +13,27 @@ RegisterCommand(RecordC, function(source, args)
     local playerSource, recordTime = nil
 
     _source = source
-
-    if args <= 10 then
-    elseif args == nil then
-        Console("The value must be less than or equal to 10.")
-        return
-    else
-        Console("The value must be less than or equal to 10.")
-        return
-    end
         
     if _source ~= 0 then
         if IsPlayerAceAllowed(_source, RecordACE) then
             playerSource = tonumber(args[1])
             recordTime = tonumber(args[2]) * 1000
+            if recordTime > 10000 then
+                recordTime = 10000
+            end
         else
             return
         end
     elseif _source == 0 then
-        if args[2] == nil or args[1] and args[2] == nil then
+        if args[2] == nil or (args[1] and args[2] == nil) then
             Console("No player or wrong command:^3 " .. RecordC .. " ^0[ID] [Time in Sec]")
             return
         else
             playerSource = tonumber(args[1])
             recordTime = tonumber(args[2]) * 1000
+            if recordTime > 10000 then
+                recordTime = 10000
+            end
         end
     end
 
