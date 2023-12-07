@@ -26,8 +26,10 @@ Fiveguard Screenshot and Record Screen Command with ACE Perms
 2. Copy the provided script into your server's resources folder.
 
 3. Add the script to your server.cfg file: `start fg_screen_record`
+   
+4. Add to server.cfg file: `add_ace group.admin yourace allow`
 
-4. Adjust the configuration parameters in the script file according to your server's setup.
+5. Adjust the configuration parameters in the script file according to your server's setup.
 
 ### Configuration (main.lua)
 
