@@ -10,10 +10,11 @@ RecordACE = "test"
 ScreenACE = "test"
 
 RegisterCommand(RecordC, function(source, args)
+    while FiveGuard == nil do Wait(1000) end
     local playerSource, recordTime = nil
 
     _source = source
-        
+
     if _source ~= 0 then
         if IsPlayerAceAllowed(_source, RecordACE) then
             playerSource = tonumber(args[1])
@@ -46,11 +47,12 @@ RegisterCommand(RecordC, function(source, args)
     end
 
     if playerSource and recordTime then
-        AntiCheat:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
+        exports[FiveGuard]:recordPlayerScreen(playerSource, recordTime, screenRecordHandler)
     end
 end, false)
 
 RegisterCommand(ScreenC, function(source, args)
+    while FiveGuard == nil do Wait(1000) end
     local playerSource = nil
 
     _source = source
@@ -72,14 +74,14 @@ RegisterCommand(ScreenC, function(source, args)
 
     local function screenshotHandler(url)
         if url then
-            console("Screenshot successfully created!", url)
+            Console("Screenshot successfully created!", url)
         else
-            console("Script Error!")
+            Console("Script Error!")
         end
     end
 
     if playerSource then
-        AntiCheat:screenshotPlayer(playerSource, screenshotHandler)
+        exports[FiveGuard]:screenshotPlayer(playerSource, screenshotHandler)
     end
 end, false)
 
@@ -93,9 +95,8 @@ function Console(msg, url)
     end
 end
 
-AddEventHandler("fg:ExportsLoaded", function(FiveGuard_res, res)
+AddEventHandler("fg:ExportsLoaded", function(fiveguard_res, res)
     if res == "*" or res == GetCurrentResourceName() then
-        FiveGuard = FiveGuard_res
-        AntiCheat = exports[FiveGuard]
+        FiveGuard = fiveguard_res
     end
 end)
